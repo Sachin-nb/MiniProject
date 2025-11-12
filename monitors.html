@@ -1,0 +1,436 @@
+{% extends "layout.html" %}
+
+{% block title %}External Monitors - LaptopShop{% endblock %}
+
+{% block styles %}
+<style>
+    .monitor-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .monitor-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .monitor-image {
+        height: 250px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .monitor-image img {
+        max-height: 220px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .monitor-card:hover .monitor-image img {
+        transform: scale(1.05);
+    }
+
+    .category-section {
+        padding: 40px 0;
+    }
+
+    .category-title {
+        position: relative;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #2c3e50;
+    }
+
+    .category-title::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: #3498db;
+        margin: 10px auto;
+    }
+
+    .price {
+        color: #27ae60;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .feature-list li {
+        padding: 4px 0;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .feature-list li i {
+        color: #3498db;
+        margin-right: 5px;
+    }
+
+    .buy-btn {
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        border: none;
+        width: 100%;
+        padding: 10px;
+        color: white;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .buy-btn:hover {
+        background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    .size-filter {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+    }
+
+    .size-filter .form-label {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+
+    .size-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(52, 152, 219, 0.9);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+    }
+
+    .recommended-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(46, 204, 113, 0.9);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="bg-light py-5">
+    <div class="container">
+        <h1 class="text-center mb-4">External Monitors</h1>
+        <p class="text-center text-muted">Find the perfect external display to complement your laptop</p>
+    </div>
+</div>
+
+<!-- Size Filter -->
+<section class="py-4">
+    <div class="container">
+        <div class="size-filter">
+            <form id="sizeFilterForm" class="row align-items-end">
+                <div class="col-md-6">
+                    <label for="laptopSize" class="form-label">Your Laptop Screen Size</label>
+                    <select class="form-select" id="laptopSize" name="size">
+                        <option value="">Select your laptop screen size</option>
+                        <option value="13">13-inch Laptop</option>
+                        <option value="14">14-inch Laptop</option>
+                        <option value="15">15-inch Laptop</option>
+                        <option value="16">16-inch Laptop</option>
+                        <option value="17">17-inch Laptop</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="usage" class="form-label">Primary Usage</label>
+                    <select class="form-select" id="usage" name="usage">
+                        <option value="general">General Use</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="professional">Professional Work</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary w-100">Show Recommendations</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Professional Monitors -->
+<section class="category-section">
+    <div class="container">
+        <h2 class="category-title">Professional Monitors</h2>
+        <div class="row g-4">
+            <!-- Dell UltraSharp -->
+            <div class="col-md-4">
+                <div class="card monitor-card">
+                    <div class="monitor-image position-relative">
+                        <img src="data:image/jpeg;base64,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" alt="Dell UltraSharp">
+                        <span class="size-badge">27"</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Dell UltraSharp U2723QE</h5>
+                        <p class="price mb-3">₹49,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>4K UHD (3840 x 2160)</li>
+                            <li><i class="bi bi-check-circle"></i>IPS Black technology</li>
+                            <li><i class="bi bi-check-circle"></i>USB-C hub with 90W power</li>
+                            <li><i class="bi bi-check-circle"></i>100% sRGB, 98% DCI-P3</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LG UltraFine -->
+            <div class="col-md-4">
+                <div class="card monitor-card">
+                    <div class="monitor-image position-relative">
+                        <img src="https://www.lg.com/global/images/business/md07516659/gallery/D05.jpg
+                        " alt="LG UltraFine">
+                        <span class="size-badge">32"</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">LG UltraFine 32UN880</h5>
+                        <p class="price mb-3">₹59,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>4K UHD (3840 x 2160)</li>
+                            <li><i class="bi bi-check-circle"></i>Ergo Stand with C-Clamp</li>
+                            <li><i class="bi bi-check-circle"></i>USB-C with 60W power</li>
+                            <li><i class="bi bi-check-circle"></i>95% DCI-P3 color gamut</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BenQ PhotoVue -->
+            <div class="col-md-4">
+                <div class="card monitor-card">
+                    <div class="monitor-image position-relative">
+                        <img src="https://m.media-amazon.com/images/I/51eQOQn5kNL.jpg" alt="BenQ PhotoVue">
+                        <span class="size-badge">27"</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">BenQ PhotoVue SW271C</h5>
+                        <p class="price mb-3">₹69,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>4K UHD with HDR</li>
+                            <li><i class="bi bi-check-circle"></i>99% AdobeRGB coverage</li>
+                            <li><i class="bi bi-check-circle"></i>Hardware calibration</li>
+                            <li><i class="bi bi-check-circle"></i>Paper Color Sync</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gaming Monitors -->
+<section class="category-section bg-light">
+    <div class="container">
+        <h2 class="category-title">Gaming Monitors</h2>
+        <div class="row g-4">
+            <!-- ASUS ROG Swift -->
+            <div class="col-md-4">
+                <div class="card monitor-card">
+                    <div class="monitor-image position-relative">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWYU3BLKbjrpp9q8bIJXC9U323DFSzjuj14YFJx5M-iLNdvAkIpd1KJV_shafdGGm-8jo&usqp=CAU" alt="ASUS ROG Swift">
+                        <span class="size-badge">27"</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">ASUS ROG Swift PG279QM</h5>
+                        <p class="price mb-3">₹54,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>1440p, 240Hz refresh rate</li>
+                            <li><i class="bi bi-check-circle"></i>1ms response time</li>
+                            <li><i class="bi bi-check-circle"></i>G-SYNC Ultimate</li>
+                            <li><i class="bi bi-check-circle"></i>HDR 400</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alienware -->
+            <div class="col-md-4">
+                <div class="card monitor-card">
+                    <div class="monitor-image position-relative">
+                        <img src="https://m.media-amazon.com/images/I/71ufV5NQ44L.jpg" alt="Alienware">
+                        <span class="size-badge">34"</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Alienware AW3423DW</h5>
+                        <p class="price mb-3">₹89,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>QD-OLED ultrawide</li>
+                            <li><i class="bi bi-check-circle"></i>175Hz refresh rate</li>
+                            <li><i class="bi bi-check-circle"></i>0.1ms response time</li>
+                            <li><i class="bi bi-check-circle"></i>True blacks & HDR</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MSI Optix -->
+            <div class="col-md-4">
+                <div class="card monitor-card">
+                    <div class="monitor-image position-relative">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYxJSJRVmiyphLWRmWa_ufpRyMuYBWtUygPAamJPCp6PMe_MIxD79oQ-bCjCMiqdDxm2o&usqp=CAU" alt="MSI Optix">
+                        <span class="size-badge">27"</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">MSI Optix MPG321UR-QD</h5>
+                        <p class="price mb-3">₹64,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>4K @ 144Hz</li>
+                            <li><i class="bi bi-check-circle"></i>Quantum Dot display</li>
+                            <li><i class="bi bi-check-circle"></i>1ms GTG response</li>
+                            <li><i class="bi bi-check-circle"></i>KVM switch built-in</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Budget-Friendly Monitors -->
+<section class="category-section">
+    <div class="container">
+        <h2 class="category-title">Budget-Friendly Options</h2>
+        <div class="row g-4">
+            <!-- LG Full HD -->
+            <div class="col-md-4">
+                <div class="card monitor-card">
+                    <div class="monitor-image position-relative">
+                        <img src="data:image/jpeg;base64,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" alt="LG Full HD">
+                        <span class="size-badge">24"</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">LG 24MP400</h5>
+                        <p class="price mb-3">₹12,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Full HD IPS</li>
+                            <li><i class="bi bi-check-circle"></i>75Hz refresh rate</li>
+                            <li><i class="bi bi-check-circle"></i>AMD FreeSync</li>
+                            <li><i class="bi bi-check-circle"></i>Reader Mode</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Samsung Smart Monitor -->
+            <div class="col-md-4">
+                <div class="card monitor-card">
+                    <div class="monitor-image position-relative">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb54rJ1NAq2eLiKqrZ1OX7JpZId-U9G5RgGg&s" alt="Samsung Smart">
+                        <span class="size-badge">27"</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Samsung M5 Smart Monitor</h5>
+                        <p class="price mb-3">₹21,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Full HD with Smart TV</li>
+                            <li><i class="bi bi-check-circle"></i>Built-in streaming apps</li>
+                            <li><i class="bi bi-check-circle"></i>Remote work ready</li>
+                            <li><i class="bi bi-check-circle"></i>Mobile connectivity</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acer Nitro -->
+            <div class="col-md-4">
+                <div class="card monitor-card">
+                    <div class="monitor-image position-relative">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjmAKF7s1JHygQklZEo9k8r7v8ytscpIIC_w&s" alt="Acer Nitro">
+                        <span class="size-badge">24"</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Acer Nitro VG240Y</h5>
+                        <p class="price mb-3">₹14,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Full HD IPS</li>
+                            <li><i class="bi bi-check-circle"></i>165Hz refresh rate</li>
+                            <li><i class="bi bi-check-circle"></i>1ms response time</li>
+                            <li><i class="bi bi-check-circle"></i>AMD FreeSync Premium</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('sizeFilterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const laptopSize = document.getElementById('laptopSize').value;
+    const usage = document.getElementById('usage').value;
+    
+    // Remove all existing recommendation badges
+    document.querySelectorAll('.recommended-badge').forEach(badge => badge.remove());
+    
+    // Add recommendations based on laptop size and usage
+    if (laptopSize && usage) {
+        let recommendations = [];
+        
+        if (usage === 'gaming') {
+            if (parseInt(laptopSize) <= 15) {
+                recommendations = ['27"'];  // Recommend 27" for smaller laptops
+            } else {
+                recommendations = ['32"', '34"'];  // Recommend larger for 17" laptops
+            }
+        } else if (usage === 'professional') {
+            if (parseInt(laptopSize) <= 14) {
+                recommendations = ['27"'];  // Recommend 27" for small laptops
+            } else {
+                recommendations = ['32"'];  // Recommend 32" for larger laptops
+            }
+        } else {
+            if (parseInt(laptopSize) <= 14) {
+                recommendations = ['24"'];  // Recommend 24" for small laptops
+            } else {
+                recommendations = ['27"'];  // Recommend 27" for larger laptops
+            }
+        }
+        
+        // Add recommendation badges
+        document.querySelectorAll('.size-badge').forEach(badge => {
+            if (recommendations.includes(badge.textContent)) {
+                const card = badge.closest('.monitor-card');
+                const div = document.createElement('div');
+                div.className = 'recommended-badge';
+                div.textContent = 'Recommended';
+                card.querySelector('.monitor-image').appendChild(div);
+            }
+        });
+    }
+});
+</script>
+{% endblock %}
