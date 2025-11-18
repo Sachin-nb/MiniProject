@@ -1,0 +1,889 @@
+{% extends "layout.html" %}
+
+{% block title %}Laptop Accessories - LaptopShop{% endblock %}
+
+{% block styles %}
+<style>
+    .accessory-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .accessory-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .accessory-image {
+        height: 200px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .accessory-image img {
+        max-height: 180px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+        background: #f8f9fa;
+    }
+    
+    .accessory-image .placeholder-icon {
+        font-size: 48px;
+        color: #adb5bd;
+    }
+
+    .accessory-card:hover .accessory-image img {
+        transform: scale(1.05);
+    }
+
+    .category-section {
+        padding: 40px 0;
+    }
+
+    .category-title {
+        position: relative;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #2c3e50;
+    }
+
+    .category-title::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: #3498db;
+        margin: 10px auto;
+    }
+
+    .price {
+        color: #27ae60;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .feature-list li {
+        padding: 4px 0;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .feature-list li i {
+        color: #3498db;
+        margin-right: 5px;
+    }
+
+    .buy-btn {
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        border: none;
+        width: 100%;
+        padding: 10px;
+        color: white;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .buy-btn:hover {
+        background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="bg-light py-5">
+    <div class="container">
+        <h1 class="text-center mb-4">Laptop Accessories</h1>
+        <p class="text-center text-muted">Enhance your laptop experience with our premium accessories collection.</p>
+    </div>
+</div>
+
+<!-- Mouse Category -->
+<section class="category-section">
+    <div class="container">
+        <h2 class="category-title">Mouse & Pointing Devices</h2>
+        <div class="row g-4">
+            <!-- Logitech MX Master 3 -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg" alt="Logitech MX Master 3">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Logitech MX Master 3</h5>
+                        <p class="price mb-3">₹9,995</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Ultra-fast MagSpeed scrolling</li>
+                            <li><i class="bi bi-check-circle"></i>Ergonomic design</li>
+                            <li><i class="bi bi-check-circle"></i>Multi-device connectivity</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Logitech G502 Hero -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://m.media-amazon.com/images/I/61mpMH5TzkL._SL1500_.jpg" alt="Logitech G502 Hero">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Logitech G502 Hero</h5>
+                        <p class="price mb-3">₹4,995</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>25K DPI sensor</li>
+                            <li><i class="bi bi-check-circle"></i>11 programmable buttons</li>
+                            <li><i class="bi bi-check-circle"></i>Adjustable weights</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Microsoft Arc Mouse -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZDxToLpPZ-2qeKoh22SCjYdmIHCUtw1X5_CxNoHbpUuYRGYZpPuPIMHcEtRBHPH_KJ2g&usqp=CAU" alt="Microsoft Arc Mouse">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Microsoft Arc Mouse</h5>
+                        <p class="price mb-3">₹6,295</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Ultra-slim design</li>
+                            <li><i class="bi bi-check-circle"></i>Bluetooth connectivity</li>
+                            <li><i class="bi bi-check-circle"></i>Snap to flat to power off</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Razer DeathAdder V2 -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://m.media-amazon.com/images/I/61doJ9AKCPL._SL1500_.jpg" alt="Razer DeathAdder V2">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Razer DeathAdder V2</h5>
+                        <p class="price mb-3">₹5,499</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>20K DPI optical sensor</li>
+                            <li><i class="bi bi-check-circle"></i>8 programmable buttons</li>
+                            <li><i class="bi bi-check-circle"></i>Chroma RGB lighting</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corsair Dark Core RGB Pro -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5kFr4Er2bfgCEdp_QEnCePfuI_jyH1MZm2g&s" alt="Corsair Dark Core RGB Pro">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Corsair Dark Core RGB Pro</h5>
+                        <p class="price mb-3">₹7,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>18K DPI sensor</li>
+                            <li><i class="bi bi-check-circle"></i>Qi wireless charging</li>
+                            <li><i class="bi bi-check-circle"></i>Sub-1ms wireless</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Keyboard Category -->
+<section class="category-section bg-light">
+    <div class="container">
+        <h2 class="category-title">Keyboards</h2>
+        <div class="row g-4">
+            <!-- Logitech MX Keys -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://www.prodotgroup.com/uploads/media/2024/1_HINDI_DEV_KB_-_IMAGES_-_WEB_2024.jpg" alt="Logitech MX Keys">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Logitech MX Keys</h5>
+                        <p class="price mb-3">₹12,995</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Backlit keys</li>
+                            <li><i class="bi bi-check-circle"></i>Multi-device support</li>
+                            <li><i class="bi bi-check-circle"></i>Smart illumination</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Keychron K2 -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwaQq30Ot3gBYwLOwqki6py7Upzxt3rmK3mA&s" alt="Keychron K2">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Keychron K2</h5>
+                        <p class="price mb-3">₹8,995</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Mechanical switches</li>
+                            <li><i class="bi bi-check-circle"></i>75% compact layout</li>
+                            <li><i class="bi bi-check-circle"></i>RGB backlight</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Microsoft Designer Compact -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwds7Yno_J-jgkf3ld8VQ1e5vM361XXUI32_IJehfQPKk-QRLWLJwMhgtNAEmWi-7MMac&usqp=CAU" alt="Microsoft Designer Compact">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Microsoft Designer Compact</h5>
+                        <p class="price mb-3">₹5,995</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Ultra-thin design</li>
+                            <li><i class="bi bi-check-circle"></i>Quiet key switches</li>
+                            <li><i class="bi bi-check-circle"></i>Emoji key</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Razer BlackWidow V3 Pro -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://cdns3.thecosmicbyte.com/wp-content/uploads/white-bg-1.png.webp" alt="Razer BlackWidow V3 Pro">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Razer BlackWidow V3 Pro</h5>
+                        <p class="price mb-3">₹18,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Wireless mechanical</li>
+                            <li><i class="bi bi-check-circle"></i>Green switches</li>
+                            <li><i class="bi bi-check-circle"></i>Multi-function dial</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corsair K70 RGB Pro -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://rukminim2.flixcart.com/image/480/640/xif0q/keyboard/gaming-keyboard/d/i/u/kb-399m-dezful-original-imagy2tdg7y5degc.jpeg?q=90" alt="Corsair K70 RGB Pro">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Corsair K70 RGB Pro</h5>
+                        <p class="price mb-3">₹15,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Cherry MX switches</li>
+                            <li><i class="bi bi-check-circle"></i>Per-key RGB</li>
+                            <li><i class="bi bi-check-circle"></i>Media controls</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Accessories Categories -->
+<section class="category-section">
+    <div class="container">
+        <h2 class="category-title">Storage & Power</h2>
+        <div class="row g-4">
+            <!-- External SSD -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe1gfLWocCxUcg03eqdN9E71eJmVez1x72cQ&s" alt="Samsung T7 SSD">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Qualitron T7 Portable SSD</h5>
+                        <p class="price mb-3">₹8,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>1TB Storage</li>
+                            <li><i class="bi bi-check-circle"></i>Up to 1,050 MB/s</li>
+                            <li><i class="bi bi-check-circle"></i>Shock resistant</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Power Bank -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqdrsJOtoyx2vJZdGoX8QtCUarhK9G4iD0CA&s" alt="Power Bank">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">20000mAh Power Bank</h5>
+                        <p class="price mb-3">₹1,999</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>65W Fast Charging</li>
+                            <li><i class="bi bi-check-circle"></i>Multiple ports</li>
+                            <li><i class="bi bi-check-circle"></i>LED Display</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- USB Hub -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg37CfLajGSEKELQ3rRb6fw3Im_9Z0qYxh6g&s" alt="USB-C Hub">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">USB-C Hub 7-in-1</h5>
+                        <p class="price mb-3">₹2,499</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>4K HDMI Output</li>
+                            <li><i class="bi bi-check-circle"></i>100W Power Delivery</li>
+                            <li><i class="bi bi-check-circle"></i>SD Card Reader</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Audio & Accessories -->
+<section class="category-section bg-light">
+    <div class="container">
+        <h2 class="category-title">Audio & Accessories</h2>
+        <div class="row g-4">
+            <!-- Webcam -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVs1wL72ovntENSnmrZg7NXHvcwZW1ccF3XQ&s" alt="Logitech C920x">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Qualitron C920x HD Pro</h5>
+                        <p class="price mb-3">₹7,995</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>1080p HD video</li>
+                            <li><i class="bi bi-check-circle"></i>Stereo audio</li>
+                            <li><i class="bi bi-check-circle"></i>Auto light correction</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Microphone -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://m.media-amazon.com/images/I/61egnO8q6ZL.jpg" alt="Blue Yeti">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Blue Yeti USB Mic</h5>
+                        <p class="price mb-3">₹12,995</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>4 Pickup patterns</li>
+                            <li><i class="bi bi-check-circle"></i>Real-time monitoring</li>
+                            <li><i class="bi bi-check-circle"></i>Plug & Play</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Headphones -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBYsc57GIYxGtS0ipqt6RvPYbMbWKqP4tpg&s" alt="Sony WH-1000XM4">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Qualitron AX-1000XG4</h5>
+                        <p class="price mb-3">₹24,990</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Active noise cancelling</li>
+                            <li><i class="bi bi-check-circle"></i>30-hour battery</li>
+                            <li><i class="bi bi-check-circle"></i>Multi-device pairing</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Protection & Support -->
+<section class="category-section">
+    <div class="container">
+        <h2 class="category-title">Protection & Support</h2>
+        <div class="row g-4">
+            <!-- Laptop Stand -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://m.media-amazon.com/images/I/71Zf9uUp+GL._SL1500_.jpg" alt="Laptop Stand">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Adjustable Laptop Stand</h5>
+                        <p class="price mb-3">₹1,495</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Ergonomic design</li>
+                            <li><i class="bi bi-check-circle"></i>Aluminum build</li>
+                            <li><i class="bi bi-check-circle"></i>Portable folding</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cooling Pad -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4dQLuMFVjs9dzdrbaJ7gMZkCmhS2wLS9_IomDcmT3lyPc-KgUQ6z83yJoDLCqG3zA4oI&usqp=CAU" alt="Cooling Pad">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Gaming Cooling Pad</h5>
+                        <p class="price mb-3">₹2,495</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>5 high-speed fans</li>
+                            <li><i class="bi bi-check-circle"></i>RGB lighting</li>
+                            <li><i class="bi bi-check-circle"></i>Height adjustment</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Premium Sleeve -->
+            <div class="col-md-4">
+                <div class="card accessory-card">
+                    <div class="accessory-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSptb4N2-VWzQSaz9xDfUuGAbX8kQxGIot8pQ&s" alt="Laptop Sleeve">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Premium Laptop Sleeve</h5>
+                        <p class="price mb-3">₹1,995</p>
+                        <ul class="feature-list mb-3">
+                            <li><i class="bi bi-check-circle"></i>Water-resistant</li>
+                            <li><i class="bi bi-check-circle"></i>Shock protection</li>
+                            <li><i class="bi bi-check-circle"></i>Accessory pockets</li>
+                        </ul>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+    <!-- Laptop Bags Section -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">Laptop Bags</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/81nKn0ZD3-L._SL1500_.jpg" 
+                                 alt="Premium Laptop Backpack"
+                                 onerror="this.onerror=null; this.src='/static/images/product-placeholder.png'; this.parentElement.innerHTML += '<i class=\'bi bi-bag placeholder-icon\'></i>'"
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Premium Laptop Backpack</h5>
+                            <p class="price mb-3">₹1,299</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Water-resistant material</li>
+                                <li><i class="bi bi-check2-circle"></i> Multiple compartments</li>
+                                <li><i class="bi bi-check2-circle"></i> Fits up to 15.6" laptops</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/71aXzYKFd9L._SL1500_.jpg" 
+                                 alt="Executive Laptop Briefcase"
+                                 onerror="this.onerror=null; this.src='/static/images/product-placeholder.png'; this.parentElement.innerHTML += '<i class=\'bi bi-briefcase placeholder-icon\'></i>'"
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Executive Laptop Briefcase</h5>
+                            <p class="price mb-3">₹1,799</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Premium leather material</li>
+                                <li><i class="bi bi-check2-circle"></i> Professional design</li>
+                                <li><i class="bi bi-check2-circle"></i> Document organizer</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/71YxFxHDrNL._SL1500_.jpg" alt="Slim Laptop Sleeve">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Slim Laptop Sleeve</h5>
+                            <p class="price mb-3">₹799</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Lightweight design</li>
+                                <li><i class="bi bi-check2-circle"></i> Shock-absorbing padding</li>
+                                <li><i class="bi bi-check2-circle"></i> Water-resistant zipper</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mouse & Keyboard Section -->
+    <section class="category-section bg-light">
+        <div class="container">
+            <h2 class="category-title">Mouse & Keyboard</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/61mpMH5TzkL._SL1500_.jpg" 
+                                 alt="Wireless Gaming Mouse"
+                                 onerror="this.onerror=null; this.src='/static/images/product-placeholder.png'; this.parentElement.innerHTML += '<i class=\'bi bi-mouse placeholder-icon\'></i>'"
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Wireless Gaming Mouse</h5>
+                            <p class="price mb-3">₹899</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> 16000 DPI sensor</li>
+                                <li><i class="bi bi-check2-circle"></i> RGB lighting</li>
+                                <li><i class="bi bi-check2-circle"></i> 6 programmable buttons</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/71cngLX2xuL._SL1500_.jpg" 
+                                 alt="Mechanical Gaming Keyboard"
+                                 onerror="this.onerror=null; this.src='/static/images/product-placeholder.png'; this.parentElement.innerHTML += '<i class=\'bi bi-keyboard placeholder-icon\'></i>'"
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Mechanical Gaming Keyboard</h5>
+                            <p class="price mb-3">₹2,499</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Blue switches</li>
+                                <li><i class="bi bi-check2-circle"></i> RGB backlighting</li>
+                                <li><i class="bi bi-check2-circle"></i> Multimedia controls</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/61drpi3cYUL._SL1500_.jpg" alt="Wireless Mouse & Keyboard Combo">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Wireless Combo Set</h5>
+                            <p class="price mb-3">₹1,499</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Long battery life</li>
+                                <li><i class="bi bi-check2-circle"></i> Silent keys & clicks</li>
+                                <li><i class="bi bi-check2-circle"></i> Ergonomic design</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/61KSceiLHwL._SL1500_.jpg" alt="Premium Mouse Pad">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">XL Gaming Mouse Pad</h5>
+                            <p class="price mb-3">₹599</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> RGB edge lighting</li>
+                                <li><i class="bi bi-check2-circle"></i> Anti-slip base</li>
+                                <li><i class="bi bi-check2-circle"></i> Water-resistant surface</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cooling & Support Section -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">Cooling & Support</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/71B5JQkWI9L._SL1500_.jpg" alt="Laptop Cooling Pad">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Gaming Cooling Pad</h5>
+                            <p class="price mb-3">₹1,499</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> 4 high-speed fans</li>
+                                <li><i class="bi bi-check2-circle"></i> LED lighting</li>
+                                <li><i class="bi bi-check2-circle"></i> Adjustable height</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/61Vd7DXnTmL._SL1500_.jpg" alt="Laptop Stand">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ergonomic Laptop Stand</h5>
+                            <p class="price mb-3">₹899</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Aluminum construction</li>
+                                <li><i class="bi bi-check2-circle"></i> 6 height levels</li>
+                                <li><i class="bi bi-check2-circle"></i> Foldable design</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Storage & Power Section -->
+    <section class="category-section bg-light">
+        <div class="container">
+            <h2 class="category-title">Storage & Power</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/71LmHyxXkBL._SL1500_.jpg" 
+                                 alt="External SSD"
+                                 onerror="this.onerror=null; this.src='/static/images/product-placeholder.png'; this.parentElement.innerHTML += '<i class=\'bi bi-device-ssd placeholder-icon\'></i>'"
+                            <p class="price mb-3">₹8,999</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> 1TB storage</li>
+                                <li><i class="bi bi-check2-circle"></i> USB 3.2 Gen 2</li>
+                                <li><i class="bi bi-check2-circle"></i> Shock-resistant</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/71UVkK7PDoL._SL1500_.jpg" 
+                                 alt="Power Bank"
+                                 onerror="this.onerror=null; this.src='/static/images/product-placeholder.png'; this.parentElement.innerHTML += '<i class=\'bi bi-battery-charging placeholder-icon\'></i>'"
+                            <p class="price mb-3">₹1,999</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> 20000mAh capacity</li>
+                                <li><i class="bi bi-check2-circle"></i> Fast charging</li>
+                                <li><i class="bi bi-check2-circle"></i> Multiple ports</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/61f3wICar5L._SL1500_.jpg" 
+                                 alt="Laptop Charger"
+                                 onerror="this.onerror=null; this.src='/static/images/product-placeholder.png'; this.parentElement.innerHTML += '<i class=\'bi bi-plug placeholder-icon\'></i>'"
+                            <p class="price mb-3">₹1,499</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Multiple tips included</li>
+                                <li><i class="bi bi-check2-circle"></i> Surge protection</li>
+                                <li><i class="bi bi-check2-circle"></i> LED indicator</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connectivity Section -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">Connectivity & Hubs</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/71Jz-p0xJJL._SL1500_.jpg" 
+                                 alt="USB-C Hub"
+                                 onerror="this.onerror=null; this.src='/static/images/product-placeholder.png'; this.parentElement.innerHTML += '<i class=\'bi bi-usb-c placeholder-icon\'></i>'"
+                            <p class="price mb-3">₹2,499</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> 4K HDMI output</li>
+                                <li><i class="bi bi-check2-circle"></i> SD card reader</li>
+                                <li><i class="bi bi-check2-circle"></i> USB 3.0 ports</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/61E4wlCCB6L._SL1500_.jpg" alt="Bluetooth Adapter">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Bluetooth 5.0 Adapter</h5>
+                            <p class="price mb-3">₹799</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Long range</li>
+                                <li><i class="bi bi-check2-circle"></i> Low latency</li>
+                                <li><i class="bi bi-check2-circle"></i> Plug & play</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/61gjV1qpFPL._SL1500_.jpg" alt="USB Wi-Fi Adapter">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Dual Band Wi-Fi Adapter</h5>
+                            <p class="price mb-3">₹1,299</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> 1200Mbps speed</li>
+                                <li><i class="bi bi-check2-circle"></i> 2.4G/5G bands</li>
+                                <li><i class="bi bi-check2-circle"></i> External antenna</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio & Webcam Section -->
+    <section class="category-section bg-light">
+        <div class="container">
+            <h2 class="category-title">Audio & Webcam</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/71zKuNICJAL._SL1500_.jpg" alt="Webcam">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">1080p HD Webcam</h5>
+                            <p class="price mb-3">₹1,999</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Full HD resolution</li>
+                                <li><i class="bi bi-check2-circle"></i> Built-in microphone</li>
+                                <li><i class="bi bi-check2-circle"></i> Auto light correction</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/71BqnOg0HzL._SL1500_.jpg" alt="USB Microphone">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">USB Condenser Microphone</h5>
+                            <p class="price mb-3">₹2,999</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Studio quality</li>
+                                <li><i class="bi bi-check2-circle"></i> Noise cancellation</li>
+                                <li><i class="bi bi-check2-circle"></i> Plug & play</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card accessory-card">
+                        <div class="accessory-image">
+                            <img src="https://m.media-amazon.com/images/I/61u1VALvkQL._SL1500_.jpg" alt="Wireless Earbuds">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">TWS Earbuds</h5>
+                            <p class="price mb-3">₹3,499</p>
+                            <ul class="feature-list mb-3">
+                                <li><i class="bi bi-check2-circle"></i> Active noise cancelling</li>
+                                <li><i class="bi bi-check2-circle"></i> 30-hour battery</li>
+                                <li><i class="bi bi-check2-circle"></i> Touch controls</li>
+                            </ul>
+                            <button class="buy-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LaptopShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

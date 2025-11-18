@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Shop - Products</title>
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Your Custom CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+   <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img src="{{ url_for('static', filename='images/Qualitron.png') }}" alt="Qualitron Logo" class="logo me-2">
+    </a>
+
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center gap-3">
+        <li class="nav-item"><a class="nav-link active text-dark fw-semibold" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/products">Laptops</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/warranty">Warranty</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/antivirus">Antivirus</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <style>
+        body {
+            background-color: #eef2f7;
+            color: #222;
+        }
+        .hero {
+            background-size: cover;
+            background-position: center;
+            height: 45vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.65);
+        }
+        .product-card img {
+            height: 210px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .product-card {
+            transition: 0.3s;
+            border-radius: 12px;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.20);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 class="fw-bold display-5 text-white">Office Laptops Buying Guide</h1>
+    </div>
+
+    <!-- Guide -->
+    <div class="container py-5">
+        <h2 class="mb-4 fw-bold text-secondary">How to Choose a Laptop for Office Use 💼</h2>
+        <p class="mb-3 fs-5">Office laptops need to be reliable, fast, and efficient for long working hours. Focus on the following points when buying:</p>
+
+        <ul class="fs-5">
+            <li><b>Processor:</b> Intel i5 / i7 or Ryzen 5 / 7 for multitasking and productivity.</li>
+            <li><b>RAM:</b> 8GB minimum — 16GB recommended for heavy Excel, Teams, Zoom, Office apps.</li>
+            <li><b>Storage:</b> SSD — 512GB ideal for professional workload.</li>
+            <li><b>Battery:</b> 8–12 hours backup helps during work-from-home and meetings.</li>
+            <li><b>Build Quality:</b> Strong chassis for daily office usage.</li>
+            <li><b>Keyboard:</b> Prefer laptops with comfortable & silent keyboards.</li>
+        </ul>
+    </div>
+
+    <!-- Recommended Office Laptops -->
+    <div class="container pb-5">
+        <h2 class="mb-4 fw-bold text-secondary">Best Office Laptops 🖥️</h2>
+
+        <div class="row g-4">
+
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/61fAHfYQrdL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary">Lenovo ThinkPad E14</h5>
+                        <p>i5 12th Gen | 16GB | 512GB SSD | Fingerprint | Best for Professionals</p>
+                        <h5 class="text-success">₹72,990</h5>
+                        <button class="btn btn-secondary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/71F4EvJ3QLL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary">HP ProBook 440 G10</h5>
+                        <p>Ryzen 5 | 16GB | 512GB SSD | Anti-Glare Display | Long Battery</p>
+                        <h5 class="text-success">₹69,499</h5>
+                        <button class="btn btn-secondary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/61a61QKKtdL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary">Dell Latitude 5420</h5>
+                        <p>i7 11th Gen | 16GB | 512GB SSD | Business Series</p>
+                        <h5 class="text-success">₹82,990</h5>
+                        <button class="btn btn-secondary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/61w7Xl8dyiL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary">ASUS ExpertBook B1402</h5>
+                        <p>i5 13th Gen | 16GB | 512GB SSD | 14" Lightweight | 1.45kg</p>
+                        <h5 class="text-success">₹66,999</h5>
+                        <button class="btn btn-secondary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/81mL1o4l+QL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary">Acer Swift Go</h5>
+                        <p>i5 13th Gen | 16GB | 512GB SSD | OLED Display | 14"</p>
+                        <h5 class="text-success">₹78,499</h5>
+                        <button class="btn btn-secondary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/71rxFOi0XkL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary">Apple MacBook Air M1</h5>
+                        <p>8GB Unified RAM | 256GB SSD | Best for Office & Work from Home</p>
+                        <h5 class="text-success">₹84,990</h5>
+                        <button class="btn btn-secondary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

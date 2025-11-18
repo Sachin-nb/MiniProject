@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Shop - Products</title>
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Your Custom CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+   <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img src="{{ url_for('static', filename='images/Qualitron.png') }}" alt="Qualitron Logo" class="logo me-2">
+    </a>
+
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center gap-3">
+        <li class="nav-item"><a class="nav-link active text-dark fw-semibold" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/products">Laptops</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/warranty">Warranty</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/antivirus">Antivirus</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="/contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #222;
+        }
+        .hero {
+            background-size: cover;
+            background-position: center;
+            height: 45vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 10px black;
+        }
+        .product-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card {
+            transition: 0.3s;
+            border-radius: 10px;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 class="fw-bold display-5 text-white">Student Laptops Buying Guide</h1>
+    </div>
+
+    <!-- Guide -->
+    <div class="container py-5">
+        <h2 class="mb-4 fw-bold text-primary">How to Choose a Laptop for Students 🎒</h2>
+        <p class="mb-3">As a student, you need a laptop that supports study, coding, online classes, research, and multitasking. Focus on the following:</p>
+
+        <ul class="fs-5">
+            <li><b>Processor:</b> Intel i3 / i5 or Ryzen 3 / 5 for best price-performance.</li>
+            <li><b>RAM:</b> Minimum 8GB (16GB recommended for coding & projects).</li>
+            <li><b>Storage:</b> SSD is MUST — 256GB / 512GB for smooth speed.</li>
+            <li><b>Battery:</b> 6–10 hours backup makes it ideal for college use.</li>
+            <li><b>Weight:</b> Prefer lightweight laptops (< 1.8kg) for portability.</li>
+            <li><b>Display:</b> Full HD for long study hours.</li>
+        </ul>
+    </div>
+
+    <!-- Recommended Student Laptops -->
+    <div class="container pb-5">
+        <h2 class="mb-4 fw-bold text-primary">Best Laptops for Students ✨</h2>
+
+        <div class="row g-4">
+
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/71S-9PPvuel._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Lenovo IdeaPad Slim 3</h5>
+                        <p>Ryzen 5 | 16GB | 512GB SSD | 15.6" | Lightweight</p>
+                        <h5 class="text-success">₹46,999</h5>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/71xTPv3DkEL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">ASUS Vivobook 15</h5>
+                        <p>i5 12th Gen | 8GB | 512GB SSD | Thin & Light</p>
+                        <h5 class="text-success">₹52,990</h5>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/71uo9vxkA6L._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">HP 15s</h5>
+                        <p>Ryzen 3 | 8GB | 512GB SSD | Full HD</p>
+                        <h5 class="text-success">₹38,990</h5>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/71dnAdOZJTL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Dell Inspiron 3520</h5>
+                        <p>i3 12th Gen | 8GB | 512GB SSD | 15.6"</p>
+                        <h5 class="text-success">₹44,499</h5>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/71nADOYJLTL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Acer Aspire 5</h5>
+                        <p>Ryzen 5 | 8GB | 512GB SSD | Aluminium Body</p>
+                        <h5 class="text-success">₹49,990</h5>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="col-md-4">
+                <div class="card product-card p-2">
+                    <img src="https://m.media-amazon.com/images/I/61uW4RtZcEL._SL1500_.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Samsung Galaxy Book 2</h5>
+                        <p>i5 12th Gen | 8GB | 512GB SSD | AMOLED Display</p>
+                        <h5 class="text-success">₹57,999</h5>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
